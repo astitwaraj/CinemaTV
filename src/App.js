@@ -1,9 +1,6 @@
-import "./index.css";
+import Body from "./components/Body";
+
 function App() {
-  return (
-    <div>
-      <h1 className="text-center">Movie Website</h1>
-    </div>
-  );
+  return <Body />;
 }
 export default App;
