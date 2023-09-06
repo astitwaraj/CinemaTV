@@ -3,9 +3,9 @@ import { POSTER_PATH } from "../utils/srcLinks";
 
 const Moviecard = ({ posterId }) => {
   return (
-    <div className="w-52">
-      <div className="m-4">
-        <img src={POSTER_PATH + posterId} alt="" />
+    <div className="w-48 ">
+      <div className="m-2">
+        <img className="rounded-md" src={POSTER_PATH + posterId} alt="" />
       </div>
     </div>
   );

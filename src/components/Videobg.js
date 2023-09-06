@@ -11,7 +11,7 @@ const Videobg = ({ id }) => {
     <>
       <div>
         <iframe
-          className="w-screen  absolute -z-10 aspect-video "
+          className="w-screen  absolute  -z-10 aspect-video "
           title="CinemaTV"
           src={
             DISPLAY_VID +

@@ -1,5 +1,5 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../utils/firebase";
@@ -7,6 +7,7 @@ import { LOGO_URL } from "../utils/srcLinks";
 import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
+  const [scrolled, setScrolled] = useState(false);
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,13 +24,15 @@ const Header = () => {
     });
     return () => unsubscribe();
   }, []);
+  const onScroll = () => {
+    window.scrollY > 540 ? setScrolled(true) : setScrolled(false);
+  };
+  window.addEventListener("scroll", onScroll);
 
   const signOutButton = () => {
     signOut(auth)
       .then(() => {})
-      .catch((error) => {
-        // An error happened.
-      });
+      .catch((error) => {});
   };
   return (
     <>
@@ -38,7 +41,13 @@ const Header = () => {
           <img className="w-2/12 contrast-125 " src={LOGO_URL} alt="" />
         </div>
       ) : (
-        <div className=" flex flex-row w-screen text-white fixed z-20 bg-gradient-to-b from-black justify-between px-12 py-2">
+        <div
+          className={
+            scrolled
+              ? "flex flex-row w-screen text-white fixed z-20  justify-between px-12 py-2 bg-black"
+              : "flex flex-row w-screen text-white fixed z-20  justify-between px-12 py-2 bg-gradient-to-b from-black"
+          }
+        >
           <div>
             <img
               className="w-32 contrast-125 p-1 items-center "
