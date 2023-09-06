@@ -16,7 +16,7 @@ const Videobg = ({ id }) => {
           src={
             DISPLAY_VID +
             key +
-            `?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=0&rel=0&loop=1`
+            `?autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=0&rel=0&loop=1&vq=hd1080`
           }
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
