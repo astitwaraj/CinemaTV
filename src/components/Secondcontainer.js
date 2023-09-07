@@ -6,7 +6,7 @@ const Secondcontainer = () => {
   const movies = useSelector((store) => store.movies);
   return (
     movies && (
-      <div className="bg-black pl-10">
+      <div className="bg-black px-[88px] ">
         <div className="relative -top-52 z-10">
           <MovieList title={"Now Playing"} movies={movies.nowPlaying} />
           <MovieList title={"Popular Movies"} movies={movies.popular} />

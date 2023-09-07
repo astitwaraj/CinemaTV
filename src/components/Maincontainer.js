@@ -10,7 +10,7 @@ const Maincontainer = () => {
   return (
     <div>
       <div>
-        <Videobg id={976573} />
+        <Videobg id={displayMovie.id} />
       </div>
       <div className=" text-white aspect-video w-screen pt-52">
         <h1 className="font-semibold text-6xl w-2/6 mx-12 mb-7 ">
