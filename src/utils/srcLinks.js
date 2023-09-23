@@ -14,3 +14,19 @@ export const API_OPTIONS = {
 export const TRAILER = "https://api.themoviedb.org/3/movie/";
 export const DISPLAY_VID = "https://www.youtube.com/embed/";
 export const POSTER_PATH = "https://image.tmdb.org/t/p/w500/";
+
+
+export const LANG_ARR = [
+  {
+    id: "en",
+    name: "English",
+  },
+  {
+    id: "hindi",
+    name: "Hindi",
+  },
+  {
+    id: "japanese",
+    name: "Japanese",
+  },
+];

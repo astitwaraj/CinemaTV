@@ -9,7 +9,7 @@ const Videobg = ({ id }) => {
   const { key } = displayKey;
   return (
     <>
-      <div>
+      <div className="overflow-x-hidden">
         <iframe
           className="w-screen absolute -z-10 aspect-video "
           title="CinemaTV"
