@@ -4,7 +4,7 @@ import Videobg from "./Videobg";
 
 const Maincontainer = () => {
   const moviesList = useSelector((store) => store.movies?.nowPlaying);
-  if (moviesList === null) return;
+  if (!moviesList) return null;
   const random = Math.floor(Math.random() * moviesList.length);
   const displayMovie = moviesList[random];
   return (
