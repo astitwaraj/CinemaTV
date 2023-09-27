@@ -8,7 +8,7 @@ const GPTmovies = () => {
   return (
     <div className="mt-8 px-[88px]">
       {gptMovieList.map((name, index) => (
-        <MovieList title={name} movies={tenmovies[index]} />
+        <MovieList key={name} title={name} movies={tenmovies[index]} />
       ))}
     </div>
   );
