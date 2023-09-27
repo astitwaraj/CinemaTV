@@ -2,6 +2,7 @@ import React from "react";
 import { POSTER_PATH } from "../utils/srcLinks";
 
 const Moviecard = ({ posterId }) => {
+  if (!posterId) return null;
   return (
     <div className="w-48 snap-start">
       <div className="m-2">

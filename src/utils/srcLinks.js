@@ -30,3 +30,7 @@ export const LANG_ARR = [
     name: "Japanese",
   },
 ];
+
+export const SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
+
+export const OPENAI_KEY = "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";

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { changeLang } from "../utils/config";
 import { auth } from "../utils/firebase";
-import { updatePageStatus } from "../utils/gptSlice";
+import { deleteAll, updatePageStatus } from "../utils/gptSlice";
 import { LANG_ARR, LOGO_URL } from "../utils/srcLinks";
 import { addUser, removeUser } from "../utils/userSlice";
 
@@ -18,7 +18,7 @@ const Header = () => {
     dispatch(changeLang(e.target.value));
   };
   const handleGptView = () => {
-    dispatch(updatePageStatus());
+    dispatch(updatePageStatus(), deleteAll());
   };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -60,7 +60,7 @@ const Header = () => {
         >
           <div>
             <img
-              className="w-32 contrast-125 p-1 items-center "
+              className="w-36 contrast-125 p-1 items-center "
               src={LOGO_URL}
               alt=""
             />
