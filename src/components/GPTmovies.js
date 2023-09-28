@@ -6,7 +6,7 @@ const GPTmovies = () => {
   const { gptMovieList, tenmovies } = useSelector((store) => store.gpt);
   if (!gptMovieList || !tenmovies) return null;
   return (
-    <div className="mt-8 px-[88px]">
+    <div className=" mt-4 md:mt-8 px-1 md:px-[88px]">
       {gptMovieList.map((name, index) => (
         <MovieList key={name} title={name} movies={tenmovies[index]} />
       ))}

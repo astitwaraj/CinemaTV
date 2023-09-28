@@ -47,30 +47,30 @@ const Header = () => {
   return (
     <>
       {!user ? (
-        <div className="absolute z-40">
-          <img className="w-2/12 contrast-125 " src={LOGO_URL} alt="" />
+        <div className="absolute  z-40">
+          <img
+            className="w-1/2 mx-auto md:mx-0 md:w-2/12 contrast-125 "
+            src={LOGO_URL}
+            alt=""
+          />
         </div>
       ) : (
         <div
           className={
             scrolled
-              ? "flex flex-row w-screen text-white fixed z-20  justify-between px-12 py-2 bg-black"
-              : "flex flex-row w-screen text-white fixed z-20  justify-between px-12 py-2 bg-gradient-to-b from-black"
+              ? "flex flex-col md:flex-row w-screen text-white fixed z-20  justify-between px-2 md:px-12 md:py-2 bg-black"
+              : "flex flex-col md:flex-row w-screen text-white fixed z-20  justify-between px-2 md:px-12 md:py-2 bg-gradient-to-b from-black"
           }
         >
-          <div>
-            <img
-              className="w-36 contrast-125 p-1 items-center "
-              src={LOGO_URL}
-              alt=""
-            />
+          <div className="mx-auto md:mx-0">
+            <img className="w-40 contrast-125" src={LOGO_URL} alt="" />
           </div>
 
-          <div className="flex flex-row items-center text-sm font-semibold">
+          <div className="flex flex-row items-center text-sm font-semibold mx-auto md:mx-0">
             {gptView && (
               <select
                 onChange={handleLang}
-                className="text-white px-2 py-1 rounded-md bg-gray-900"
+                className="text-white px-1  md:px-2 py-1 rounded-md bg-gray-900"
               >
                 {LANG_ARR.map((lang) => (
                   <option key={lang.id} value={lang.id}>
@@ -81,16 +81,16 @@ const Header = () => {
             )}
             <button
               onClick={handleGptView}
-              className="bg-red-500 m-2 rounded-md text-black px-2 py-1"
+              className="bg-red-500 m-1 md:m-2 rounded-md text-black px-1 md:px-2 py-1"
             >
               {!gptView ? "GPT Search" : "Homepage"}
             </button>
-            <span className="bg-red-500 rounded-md text-black px-2 py-1">
+            <span className="bg-red-500 rounded-md text-black px-1 md:px-2 py-1">
               {user.displayName}
             </span>
             <button
               onClick={signOutButton}
-              className="bg-red-500 rounded-md m-2 text-black px-2 py-1"
+              className="bg-red-500 rounded-md m-1 md:m-2 text-black px-1 md:px-2 py-1"
             >
               Logout
             </button>

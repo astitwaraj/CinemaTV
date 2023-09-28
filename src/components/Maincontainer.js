@@ -9,18 +9,20 @@ const Maincontainer = () => {
   const displayMovie = moviesList[random];
   return (
     <div>
-      <div>
+      <div className="pt-28 md:pt-0">
         <Videobg id={displayMovie.id} />
       </div>
-      <div className=" text-white aspect-video w-screen pt-52">
-        <h1 className="font-semibold text-6xl w-2/6 mx-12 mb-7 ">
+      <div className=" text-white aspect-video w-screen mt-24 md:pt-52">
+        <h1 className="font-semibold md:text-6xl md:w-2/6 mx-2 md:mx-12 md:mb-7 ">
           {displayMovie.original_title}
         </h1>
-        <p className=" mx-12 w-2/6">{displayMovie.overview}</p>
-        <button className="ml-12 bg-white px-12 py-2 hover:bg-opacity-40 text-black rounded-md m-5 text-xl font-bold ">
+        <p className=" hidden md:flow-root mx-12 w-2/6">
+          {displayMovie.overview}
+        </p>
+        <button className="ml-2 md:ml-12 bg-white px-4 md:px-12 py-2 hover:bg-opacity-40 text-black rounded-md m-2 md:m-5 text-sm md:text-xl font-bold ">
           Play
         </button>
-        <button className=" bg-gray-900 bg-opacity-50 hover:bg-opacity-90 px-6 py-2 text-white rounded-md text-xl">
+        <button className=" bg-gray-900 bg-opacity-50 hover:bg-opacity-90 px-2 md:px-6 py-2 text-white rounded-md text-sm md:text-xl">
           More Info
         </button>
       </div>

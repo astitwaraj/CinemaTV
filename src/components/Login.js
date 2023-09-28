@@ -71,7 +71,7 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          className="bg-cover bg-center bg-no-repeat bg-fixed"
+          className="w-screen h-screen object-cover -z-20 fixed"
           src={LOGIN_BG}
           alt=""
         />
@@ -79,9 +79,9 @@ const Login = () => {
       <div className="flex place-content-center">
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="absolute bg-black text-white w-3/12 top-24 h-auto rounded-md bg-opacity-80 flex flex-col"
+          className="absolute bg-black text-white w-[90%] md:w-3/12 top-24 h-auto rounded-md bg-opacity-80 flex flex-col"
         >
-          <h1 className="font-bold text-3xl ml-10 mt-16 mb-5 cursor-default">
+          <h1 className="font-bold text-3xl ml-10 mt-8 md:mt-16 mb-5 cursor-default">
             {signInstate ? "Sign In" : "Sign Up"}
           </h1>
           {!signInstate && (

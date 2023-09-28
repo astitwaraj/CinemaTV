@@ -38,16 +38,16 @@ const GPTsearchBar = () => {
     <>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" rounded-md bg-black flex "
+        className="rounded-md bg-gray-950 flex justify-evenly  "
       >
         <input
           ref={search}
-          className="text-lg font-semibold p-3 m-2 rounded-md w-9/12"
+          className="focus:outline-none text-sm  md:text-lg font-semibold p-1 md:p-3 m-1 md:m-2 rounded-md w-9/12"
           placeholder={lang[langKey].placeHolder}
         ></input>
         <button
           onClick={hanldeGPTsearch}
-          className="text-lg font-semibold p-3 m-2 ml-0 rounded-md w-3/12 bg-red-500"
+          className="text-sm  md:text-lg font-semibold p-1 md:p-3 m-1 md:m-2 ml-0 rounded-md w-3/12 bg-red-500"
         >
           {lang[langKey].search}
         </button>
