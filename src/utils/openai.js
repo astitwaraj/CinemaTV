@@ -1,8 +1,8 @@
 import OpenAI from "openai";
-import { OPENAI_KEY } from "./srcLinks";
+import { OPENAI_API_KEY } from "./srcLinks";
 
 const openai = new OpenAI({
-  apiKey: OPENAI_KEY, // defaults to process.env["OPENAI_API_KEY"]
+  apiKey: OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
   dangerouslyAllowBrowser: true,
 });
 
