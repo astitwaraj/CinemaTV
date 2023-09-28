@@ -7,7 +7,7 @@ import Header from "./Header";
 const gptSearchPage = () => {
   return (
     <>
-      <div className="bg-black bg-opacity-60 h-auto">
+      <div>
         <img
           className="w-screen h-screen object-cover -z-20 fixed"
           src={LOGIN_BG}
@@ -17,8 +17,9 @@ const gptSearchPage = () => {
         <div className="pt-[34%] md:pt-[8%] px-10 md:px-[25%]">
           <GPTsearchBar />
         </div>
-
-        <GPTmovies />
+        <div className="bg-black rounded-md bg-opacity-60 md:mx-[44px] ">
+          <GPTmovies />
+        </div>
       </div>
     </>
   );

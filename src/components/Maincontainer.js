@@ -12,8 +12,8 @@ const Maincontainer = () => {
       <div className="pt-28 md:pt-0">
         <Videobg id={displayMovie.id} />
       </div>
-      <div className=" text-white aspect-video w-screen mt-24 md:pt-52">
-        <h1 className="font-semibold md:text-6xl md:w-2/6 mx-2 md:mx-12 md:mb-7 ">
+      <div className=" text-white aspect-video w-screen mt-24 md:mt-0 ">
+        <h1 className="font-semibold md:text-6xl md:w-2/6 mx-2 md:pt-[18%] md:mx-12 md:mb-7 ">
           {displayMovie.original_title}
         </h1>
         <p className=" hidden md:flow-root mx-12 w-2/6">
