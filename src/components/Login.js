@@ -9,7 +9,6 @@ import { auth } from "../utils/firebase";
 import { checkValid } from "../utils/formValidation";
 import { LOGIN_BG } from "../utils/srcLinks";
 import { addUser } from "../utils/userSlice";
-import Header from "./Header";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -68,7 +67,6 @@ const Login = () => {
   };
   return (
     <div>
-      <Header />
       <div className="absolute">
         <img
           className="w-screen h-screen object-cover -z-20 fixed"

@@ -8,8 +8,8 @@ const gptSlice = createSlice({
     tenmovies: null,
   },
   reducers: {
-    updatePageStatus: (state) => {
-      state.gptPageView = !state.gptPageView;
+    updatePageStatus: (state, actions) => {
+      state.gptPageView = actions.payload;
     },
     updateMovieLits: (state, actions) => {
       state.gptMovieList = actions.payload;
@@ -18,7 +18,6 @@ const gptSlice = createSlice({
       state.tenmovies = actions.payload;
     },
     deleteAll: (state, actions) => {
-      state.gptMovieList = state.gptMovieList.null;
       state.tenmovies = null;
     },
   },

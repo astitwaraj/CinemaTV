@@ -1,28 +1,26 @@
-import React from "react";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import Browse from "./Browse";
-import GptSearchPage from "./GPTsearchPage";
-import Login from "./Login";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import { addUser, removeUser } from "../utils/userSlice";
 const Body = () => {
-  const approuter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Login />,
-    },
-    {
-      path: "/browse",
-      element: <Browse />,
-    },
-    {
-      path: "/search",
-      element: <GptSearchPage />,
-    },
-  ]);
-  return (
-    <>
-      <RouterProvider router={approuter} />
-    </>
-  );
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((store) => store.user);
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        const { uid, email, displayName } = user;
+        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
+        navigate("/browse");
+      } else {
+        dispatch(removeUser());
+        navigate("/");
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 };
 
 export default Body;

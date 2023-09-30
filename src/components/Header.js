@@ -1,38 +1,28 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { changeLang } from "../utils/config";
 import { auth } from "../utils/firebase";
 import { deleteAll, updatePageStatus } from "../utils/gptSlice";
 import { LANG_ARR, LOGO_URL } from "../utils/srcLinks";
-import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const user = useSelector((store) => store.user);
   const gptView = useSelector((store) => store.gpt.gptPageView);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const handleLang = (e) => {
     dispatch(changeLang(e.target.value));
   };
-  const handleGptView = () => {
-    dispatch(updatePageStatus(), deleteAll());
+  const handleGptViewH = () => {
+    dispatch(updatePageStatus(false));
+    dispatch(deleteAll());
   };
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        const { uid, email, displayName } = user;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
-      } else {
-        dispatch(removeUser());
-        navigate("/");
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+  const handleGptViewS = () => {
+    dispatch(updatePageStatus(true));
+  };
 
   const onScroll = () => {
     window.scrollY > 540 ? setScrolled(true) : setScrolled(false);
@@ -40,6 +30,7 @@ const Header = () => {
   window.addEventListener("scroll", onScroll);
 
   const signOutButton = () => {
+    gptView && dispatch(updatePageStatus());
     signOut(auth)
       .then(() => {})
       .catch((error) => {});
@@ -70,7 +61,7 @@ const Header = () => {
             {gptView && (
               <select
                 onChange={handleLang}
-                className="text-white px-1  md:px-2 py-1 rounded-md bg-gray-900"
+                className="text-white px-1 mx-2 md:px-2 py-1 rounded-md bg-gray-900"
               >
                 {LANG_ARR.map((lang) => (
                   <option key={lang.id} value={lang.id}>
@@ -79,12 +70,23 @@ const Header = () => {
                 ))}
               </select>
             )}
-            <button
-              onClick={handleGptView}
-              className="bg-red-500 m-1 md:m-2 rounded-md text-black px-1 md:px-2 py-1"
-            >
-              {!gptView ? "GPT Search" : "Homepage"}
-            </button>
+            <Link to={"/browse"}>
+              <button
+                onClick={handleGptViewH}
+                className="bg-red-500 m-1  rounded-md text-black px-1 md:px-2 py-1"
+              >
+                {"Homepage"}
+              </button>
+            </Link>
+            <Link to={"/browse/search"}>
+              <button
+                onClick={handleGptViewS}
+                className="bg-red-500 m-1 md:m-2 rounded-md text-black px-1 md:px-2 py-1"
+              >
+                {"Search"}
+              </button>
+            </Link>
+
             <span className="bg-red-500 rounded-md text-black px-1 md:px-2 py-1">
               {user.displayName}
             </span>

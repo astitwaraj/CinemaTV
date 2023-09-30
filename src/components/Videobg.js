@@ -16,10 +16,10 @@ const Videobg = ({ id }) => {
           src={
             DISPLAY_VID +
             key +
-            `?&vq=hd1080&autoplay=1&mute=1&controls=0&showinfo=0&modestbranding=0&rel=0&loop=1`
+            `?&vq=hd1080&autoplay=1&mute=1&controls=0&modestbranding=0&rel=0&loop=1&playlist=` +
+            key
           }
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
         ></iframe>
       </div>
     </>

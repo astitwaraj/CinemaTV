@@ -1,14 +1,15 @@
 import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateMovieLits, updatetenmovie } from "../utils/gptSlice";
-import lang from "../utils/language";
-import openai from "../utils/openai";
-import { API_OPTIONS, SEARCH } from "../utils/srcLinks";
+import { updateMovieLits, updatetenmovie } from "../../utils/gptSlice";
+import lang from "../../utils/language";
+import openai from "../../utils/openai";
+import { API_OPTIONS, SEARCH } from "../../utils/srcLinks";
 
 const GPTsearchBar = () => {
   const dispatch = useDispatch();
   let search = useRef(null);
   const langKey = useSelector((store) => store.config.language);
+  const loading = useSelector((store) => store.gpt.tenmovies);
 
   const movieDeets = async (text) => {
     const data = await fetch(SEARCH + text, API_OPTIONS);
@@ -20,7 +21,7 @@ const GPTsearchBar = () => {
     const query =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
       search.current.value +
-      ". only give me names of 20 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
+      ". only give me names of 40 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
 
     const chatCompletion = await openai.chat.completions.create({
       messages: [{ role: "user", content: query }],

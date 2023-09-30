@@ -3,6 +3,7 @@ import { POSTER_PATH } from "../utils/srcLinks";
 
 const Moviecard = ({ posterId }) => {
   if (!posterId) return null;
+
   return (
     <div className="w-32 md:w-48 snap-start">
       <div className="m-1 md:m-2">

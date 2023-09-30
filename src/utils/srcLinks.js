@@ -11,9 +11,10 @@ export const API_OPTIONS = {
 };
 
 export const TRAILER = "https://api.themoviedb.org/3/movie/";
+export const SIMILAR_MOVIES = "https://api.themoviedb.org/3/movie/";
 export const DISPLAY_VID = "https://www.youtube.com/embed/";
 export const POSTER_PATH = "https://image.tmdb.org/t/p/w500/";
-
+export const MOVIE_DETAILS = "https://api.themoviedb.org/3/movie/";
 export const LANG_ARR = [
   {
     id: "en",
@@ -31,3 +32,4 @@ export const LANG_ARR = [
 
 export const SEARCH = "https://api.themoviedb.org/3/search/movie?query=";
 export const OPENAI_API_KEY = process.env.REACT_APP_OPENAI_API_KEY;
+
