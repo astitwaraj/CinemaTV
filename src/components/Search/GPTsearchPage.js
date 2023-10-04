@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { LOGIN_BG } from "../../utils/srcLinks";
-import GPTmovies from "./GPTmovies";
-import GPTsearchBar from "./GPTsearchBar";
 
+import GPTsearchBar from "./GPTsearchBar";
+const GPTmovies = lazy(() => import("./GPTmovies"));
 const gptSearchPage = () => {
   return (
     <>
@@ -17,7 +17,15 @@ const gptSearchPage = () => {
           <GPTsearchBar />
         </div>
         <div className="bg-black rounded-md bg-opacity-60 md:mx-[44px] ">
-          <GPTmovies />
+          <Suspense
+            fallback={
+              <h1 className="text-black font-semibold text-5xl pt-80 px-[38%]">
+                Loading⏳
+              </h1>
+            }
+          >
+            <GPTmovies />
+          </Suspense>
         </div>
       </div>
     </>

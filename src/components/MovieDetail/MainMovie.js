@@ -33,14 +33,15 @@ const MainMovie = ({ currentMovie }) => {
           </div>
 
           <Link to={"/playing"}>
-            <button className=" bg-white my-6 px-12 py-2 hover:bg-opacity-40 text-black rounded-md  text-xl font-bold ">
+            <button className=" bg-white my-6 px-10 py-2 hover:bg-opacity-40 text-black rounded-md  text-xl font-bold ">
               Play
             </button>
           </Link>
-
-          <button className=" bg-white mx-3 px-12 py-2 hover:bg-opacity-40 text-black rounded-md  text-xl font-bold ">
-            Watch Trailer
-          </button>
+          <Link to={"/browse/trailer/" + currentMovie.id}>
+            <button className=" bg-white mx-3 px-6 py-2 hover:bg-opacity-40 text-black rounded-md  text-xl font-bold ">
+              Watch Trailer
+            </button>
+          </Link>
         </div>
       </div>
     </div>

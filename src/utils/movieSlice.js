@@ -33,10 +33,6 @@ const movieSlice = createSlice({
     updateSimilarMovies: (state, action) => {
       state.similarMovies = action.payload;
     },
-    deleteCmSm: (state) => {
-      state.similarMovies = null;
-      state.currentMovie = null;
-    },
   },
 });
 
@@ -48,6 +44,5 @@ export const {
   addupComing,
   addtrailerVid,
   updateSimilarMovies,
-  deleteCmSm,
 } = movieSlice.actions;
 export default movieSlice.reducer;

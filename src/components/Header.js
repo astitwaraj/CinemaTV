@@ -1,7 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { changeLang } from "../utils/config";
 import { auth } from "../utils/firebase";
 import { deleteAll, updatePageStatus } from "../utils/gptSlice";
@@ -12,6 +12,8 @@ const Header = () => {
   const user = useSelector((store) => store.user);
   const gptView = useSelector((store) => store.gpt.gptPageView);
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const handleLang = (e) => {
     dispatch(changeLang(e.target.value));

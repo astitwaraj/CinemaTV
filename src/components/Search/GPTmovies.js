@@ -13,6 +13,7 @@ const GPTmovies = () => {
         {tenmovies?.map((movie) => (
           <Link key={movie[0].id} to={"/browse/" + movie[0].id}>
             {console.log(movie[0].id)}
+
             <Moviecard key={movie[0].id} posterId={movie[0].poster_path} />
           </Link>
         ))}

@@ -1,11 +1,11 @@
 import { useSelector } from "react-redux";
-import useTrailerVideo from "../useHooks/useTrailerVideo";
-import { DISPLAY_VID } from "../utils/srcLinks";
+import useTrailerVideo from "../../useHooks/useTrailerVideo";
+import { DISPLAY_VID } from "../../utils/srcLinks";
 
 const Videobg = ({ id }) => {
   useTrailerVideo(id);
   const displayKey = useSelector((store) => store.movies?.trailerVideo);
-  if (displayKey === null) return;
+  if (!displayKey) return null;
   const { key } = displayKey;
   return (
     <>

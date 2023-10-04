@@ -5,9 +5,9 @@ import App from "./App";
 import Browse from "./components/Homepage/Browse";
 import Login from "./components/Login";
 import MovieDetail from "./components/MovieDetail/MovieDetail";
+import Watchtrailer from "./components/MovieDetail/Watchtrailer";
 import PlayMovies from "./components/PlayMovies";
 import GPTsearchPage from "./components/Search/GPTsearchPage";
-import Videobg from "./components/Videobg";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
@@ -33,8 +33,8 @@ const approuter = createBrowserRouter([
         element: <PlayMovies />,
       },
       {
-        path: "/browse/:movieID/trailer",
-        element: <Videobg />,
+        path: "/browse/trailer/:movieID",
+        element: <Watchtrailer />,
       },
       {
         path: "/browse/search",

@@ -9,7 +9,7 @@ const useTrailerVideo = (id) => {
     const data = await fetch(TRAILER + id + "/videos", API_OPTIONS);
     const json = await data.json();
     const trailerVid = json.results.filter((video) => {
-      return video.name === "Official Trailer";
+      return video.name === "Official Trailer" || video.type === "Trailer";
     });
     dispatch(addtrailerVid(trailerVid[0]));
   };

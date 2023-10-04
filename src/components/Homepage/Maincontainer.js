@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import useSearchMovie from "../../useHooks/useSearchMovie";
-import Videobg from "../Videobg";
+import Videobg from "./Videobg";
 
 const Maincontainer = () => {
   useSearchMovie(976573);

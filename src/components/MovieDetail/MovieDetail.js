@@ -9,9 +9,9 @@ const MovieDetail = () => {
   const { movieID } = useParams();
   useSearchMovie(movieID);
   useSimilarMovies(movieID);
-
   const { currentMovie, similarMovies } = useSelector((store) => store.movies);
-  if (!currentMovie || !similarMovies) return null;
+
+  if (!similarMovies || !currentMovie) return null;
   return (
     <>
       <div className="flex flex-col bg-gray-950 pt-28 h-screen w-screen">
