@@ -15,7 +15,7 @@ const useSimilarMovies = (movieID) => {
   };
   useEffect(() => {
     similarMovies();
-  }, []);
+  }, [movieID]);
   return <div>movie_id</div>;
 };
 

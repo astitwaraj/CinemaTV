@@ -4,9 +4,11 @@ import MovieList from "../MovieList";
 const SimilarMovie = ({ similarMovies }) => {
   return (
     <div>
-      <div className="mx-16 my-8">
-        <MovieList title={"Similar Movies"} movies={similarMovies} />
-      </div>
+      {!similarMovies.loading && (
+        <div className="mx-16 my-8">
+          <MovieList title={"Similar Movies"} movies={similarMovies.url} />
+        </div>
+      )}
     </div>
   );
 };

@@ -16,7 +16,7 @@ const useSearchMovie = (movieID) => {
   };
   useEffect(() => {
     movieDeets();
-  }, []);
+  }, [movieID]);
 };
 
 export default useSearchMovie;

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import useSearchMovie from "../../useHooks/useSearchMovie";
@@ -7,10 +8,10 @@ import SimilarMovie from "./SimilarMovie";
 
 const MovieDetail = () => {
   const { movieID } = useParams();
+
   useSearchMovie(movieID);
   useSimilarMovies(movieID);
   const { currentMovie, similarMovies } = useSelector((store) => store.movies);
-
   if (!similarMovies || !currentMovie) return null;
   return (
     <>
@@ -22,4 +23,4 @@ const MovieDetail = () => {
   );
 };
 
-export default MovieDetail;
+export default memo(MovieDetail);

@@ -8,26 +8,31 @@ const Watchtrailer = () => {
   const { movieID } = useParams();
   useTrailerVideo(movieID);
   const displayKey = useSelector((store) => store.movies?.trailerVideo);
-  if (!displayKey)
+  if (!displayKey.url && !displayKey.loading)
     return (
       <h1 className="text-white text-5xl pt-80 px-[38%]">⚠️Not Available</h1>
     );
-  const { key } = displayKey;
+  const { url } = displayKey;
+  console.log(displayKey);
   return (
     <>
-      <div>
-        <iframe
-          className="w-screen aspect-video"
-          title="CinemaTV"
-          src={
-            DISPLAY_VID +
-            key +
-            `?&vq=hd1080&autoplay=1&modestbranding=0&rel=0&loop=1&playlist=` +
-            key
-          }
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share,fullscreen"
-        ></iframe>
-      </div>
+      {!displayKey.loading ? (
+        <div>
+          <iframe
+            className="w-screen aspect-video"
+            title="CinemaTV"
+            src={
+              DISPLAY_VID +
+              url?.key +
+              `?&vq=hd1080&autoplay=1&modestbranding=0&rel=0&loop=1&playlist=` +
+              url?.key
+            }
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share,fullscreen"
+          ></iframe>
+        </div>
+      ) : (
+        <h1 className="text-white text-5xl pt-80 px-[38%]">Loading</h1>
+      )}
     </>
   );
 };

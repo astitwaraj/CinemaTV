@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import App from "./App";
 import Browse from "./components/Homepage/Browse";
 import Login from "./components/Login";
@@ -11,7 +11,7 @@ import GPTsearchPage from "./components/Search/GPTsearchPage";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
-const approuter = createBrowserRouter([
+const approuter = createHashRouter([
   {
     path: "/",
     element: <App />,

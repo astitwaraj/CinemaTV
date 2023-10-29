@@ -5,7 +5,7 @@ const Moviecard = lazy(() => import("../Moviecard"));
 
 const GPTmovies = () => {
   const { gptMovieList, tenmovies } = useSelector((store) => store.gpt);
-  while (!gptMovieList || !tenmovies)
+  if (!gptMovieList || !tenmovies)
     return (
       <h1 className="text-white bg-black rounded-md mt-8 h-screen bg-opacity-60 md:mx-[44px]  text-5xl pt-56 px-[38%]">
         Loading⏳

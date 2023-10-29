@@ -6,7 +6,7 @@ const Videobg = ({ id }) => {
   useTrailerVideo(id);
   const displayKey = useSelector((store) => store.movies?.trailerVideo);
   if (!displayKey) return null;
-  const { key } = displayKey;
+  const { url } = displayKey;
   return (
     <>
       <div className="overflow-x-hidden">
@@ -15,9 +15,9 @@ const Videobg = ({ id }) => {
           title="CinemaTV"
           src={
             DISPLAY_VID +
-            key +
+            url?.key +
             `?&vq=hd1080&autoplay=1&mute=1&controls=0&modestbranding=0&rel=0&loop=1&playlist=` +
-            key
+            url?.key
           }
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
