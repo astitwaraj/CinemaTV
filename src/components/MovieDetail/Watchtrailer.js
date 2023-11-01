@@ -18,7 +18,7 @@ const Watchtrailer = () => {
 
   return (
     <>
-      {displayKey.loading ? (
+      {!displayKey.loading ? (
         <div className="pt-44 md:pt-0">
           <iframe
             className="w-screen aspect-video"
