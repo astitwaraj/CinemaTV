@@ -27,7 +27,7 @@ const Header = () => {
   };
 
   const onScroll = () => {
-    window.scrollY > 540 ? setScrolled(true) : setScrolled(false);
+    window.scrollY > 140 ? setScrolled(true) : setScrolled(false);
   };
   window.addEventListener("scroll", onScroll);
 
