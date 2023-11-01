@@ -5,10 +5,10 @@ import { POSTER_PATH } from "../../utils/srcLinks";
 const MainMovie = ({ currentMovie }) => {
   return (
     <div>
-      <div className="flex mx-16 flex-col md:flex-row">
-        <div className=" m-auto md:mr-4 md:w-3/12">
+      <div className="flex mx-12 md:mx-16 flex-col md:flex-row">
+        <div className=" md:mr-4 md:w-3/12">
           <img
-            className="w-auto h-96  rounded-md"
+            className=" rounded-md"
             src={POSTER_PATH + currentMovie.poster_path}
             alt=""
           />
@@ -35,12 +35,12 @@ const MainMovie = ({ currentMovie }) => {
           </div>
 
           <Link to={"/playing"}>
-            <button className=" bg-white my-6 px-10 py-2 hover:bg-opacity-40 text-black rounded-md  text-lg md:text-xl font-bold ">
+            <button className=" bg-white my-6 mr-3 md:mr-0 px-6 md:px-10 py-1 md:py-2 hover:bg-opacity-40 text-black rounded-md  text-lg md:text-xl font-bold ">
               Play
             </button>
           </Link>
           <Link to={"/browse/trailer/" + currentMovie.id}>
-            <button className=" bg-white mx-3 px-6 py-2 hover:bg-opacity-40 text-black rounded-md  text-lg md:text-xl font-bold ">
+            <button className=" bg-white  md:mx-3 px-6 py-1 md:py-2 hover:bg-opacity-40 text-black rounded-md  text-lg md:text-xl font-bold ">
               Watch Trailer
             </button>
           </Link>

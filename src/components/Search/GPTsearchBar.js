@@ -62,7 +62,7 @@ const GPTsearchBar = () => {
       <div>
         <Suspense
           fallback={
-            <h1 className="text-black font-semibold text-5xl pt-80 px-[38%]">
+            <h1 className="text-yellow-500 font-semibold text-xl md:text-5xl pt-80 px-[38%]">
               Loading⏳
             </h1>
           }
